@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-function Cart({ cartStorage, increment, decrement }) {
+function Cart({ total, cartStorage, increment, decrement }) {
 	return (
 		<div className="cart-container">
 			{cartStorage.map((child) => {
@@ -15,6 +15,7 @@ function Cart({ cartStorage, increment, decrement }) {
 					></CartItem>
 				);
 			})}
+			<h2>Total: {total}</h2>
 		</div>
 	);
 }

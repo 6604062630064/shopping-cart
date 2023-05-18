@@ -4,10 +4,13 @@ import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Product from "./components/Product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cart from "./components/Cart";
+
 function App() {
 	const [items, setItems] = useState([]);
+
+	const [total, setTotal] = useState(0);
 
 	const increment = (e, id) => {
 		e.preventDefault();
@@ -29,7 +32,7 @@ function App() {
 		const updatedItem = {
 			...items[currentItemIndex],
 			quantity:
-				items[currentItemIndex].quantity - 1 === -1
+				items[currentItemIndex].quantity === 0
 					? 0
 					: items[currentItemIndex].quantity - 1,
 		};
@@ -48,6 +51,28 @@ function App() {
 		}
 		console.log({ id, name, price });
 	};
+
+	const calculateTotal = () => {
+		// check if empty
+
+		if (items.length === 0) {
+			return 0;
+		}
+
+		if (items.length === 1) {
+			return items[0].price * items[0].quantity;
+		}
+		return items.reduce(
+			(accumulator, currentValue) =>
+				accumulator + currentValue.price * currentValue.quantity,
+			0
+		);
+	};
+
+	useEffect(() => {
+		setTotal(calculateTotal());
+	}, [items]);
+
 	return (
 		<div className="App">
 			<Header />
@@ -77,6 +102,7 @@ function App() {
 								increment={increment}
 								decrement={decrement}
 								cartStorage={items}
+								total={total}
 							/>
 						</>
 					}
