@@ -34,7 +34,7 @@ function Product({ addToCart }) {
 						name={element.name}
 						url={element.url}
 						price={element.price}
-						key={element.key}
+						key={element.id}
 					></Card>
 				);
 			})}

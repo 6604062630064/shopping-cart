@@ -45,7 +45,7 @@ function App() {
 					path="/cart"
 					element={
 						<>
-							<Cart />
+							<Cart cartStorage={items} />
 						</>
 					}
 				></Route>

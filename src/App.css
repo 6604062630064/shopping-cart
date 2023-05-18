@@ -143,3 +143,26 @@ a:hover {
   font-size: 1.3rem;
   font-weight: bold;
 }
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 45px;
+  gap: 8px;
+}
+
+.cart {
+  width: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  gap: 45px;
+}
+
+.cart > h3 { 
+  flex: 1 1;
+
+}
