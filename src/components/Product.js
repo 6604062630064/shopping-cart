@@ -29,6 +29,8 @@ function Product({ addToCart }) {
 			{data.map((element) => {
 				return (
 					<Card
+						id={element.id}
+						addToCart={addToCart}
 						name={element.name}
 						url={element.url}
 						price={element.price}

@@ -128,3 +128,18 @@ a:hover {
   grid-template-columns: repeat(2, auto);
   justify-content: space-evenly;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card > button {
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  height: 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}

@@ -13,9 +13,7 @@ function Header() {
 						<Link to="/product">Product</Link>
 					</li>
 					<li>Contact</li>
-					<li>
-						<button>fdsfdsf</button>
-					</li>
+					<li>Cart</li>
 				</ul>
 			</div>
 		</div>
