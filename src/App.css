@@ -122,3 +122,9 @@ a {
 a:hover {
   color: #FFF;
 }
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-evenly;
+}

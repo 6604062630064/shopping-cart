@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Home() {
 	return (
 		<div className="home">
-			<button>Shop now</button>
+			<Link to="/product">
+				<button>Shop now</button>
+			</Link>
 		</div>
 	);
 }
