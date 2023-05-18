@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-function Cart({ cartStorage }) {
+function Cart({ cartStorage, increment, decrement }) {
 	return (
 		<div className="cart-container">
 			{cartStorage.map((child) => {
@@ -9,6 +9,9 @@ function Cart({ cartStorage }) {
 						key={child.id}
 						name={child.name}
 						quantity={child.quantity}
+						increment={increment}
+						decrement={decrement}
+						id={child.id}
 					></CartItem>
 				);
 			})}

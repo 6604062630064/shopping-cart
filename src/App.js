@@ -9,6 +9,34 @@ import Cart from "./components/Cart";
 function App() {
 	const [items, setItems] = useState([]);
 
+	const increment = (e, id) => {
+		e.preventDefault();
+		const currentItemIndex = items.findIndex((child) => child.id === id);
+
+		const updatedItem = {
+			...items[currentItemIndex],
+			quantity: items[currentItemIndex].quantity + 1,
+		};
+		const newItems = [...items];
+		newItems[currentItemIndex] = updatedItem;
+		setItems(newItems);
+	};
+
+	const decrement = (e, id) => {
+		e.preventDefault();
+		const currentItemIndex = items.findIndex((child) => child.id === id);
+
+		const updatedItem = {
+			...items[currentItemIndex],
+			quantity:
+				items[currentItemIndex].quantity - 1 === -1
+					? 0
+					: items[currentItemIndex].quantity - 1,
+		};
+		const newItems = [...items];
+		newItems[currentItemIndex] = updatedItem;
+		setItems(newItems);
+	};
 	const addToCart = (e, id, name, price) => {
 		e.preventDefault();
 
@@ -45,7 +73,11 @@ function App() {
 					path="/cart"
 					element={
 						<>
-							<Cart cartStorage={items} />
+							<Cart
+								increment={increment}
+								decrement={decrement}
+								cartStorage={items}
+							/>
 						</>
 					}
 				></Route>
